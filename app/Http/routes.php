@@ -14,14 +14,51 @@ Route::get('/', function () {
     return redirect('/blog');
 });
 
-Route::get('blog', 'BlogController@index');
-Route::get('blog/new', 'BlogController@newPost');
-Route::get('blog/{id}', 'BlogController@showPost');
-Route::get('blog/{post}/edit', 'BlogController@editPost');
-Route::get('blog/{post}/delete', 'BlogController@deletePost');
+Route::get('blog', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'BlogController@index',
+    'roles' => ['user']
+]);
 
-Route::post('blog/create', ['as' => 'post.create', 'uses' => 'BlogController@createPost']);
-Route::post('blog/{post}/update', ['as' => 'post.update', 'uses' => 'BlogController@updatePost']);
+Route::get('blog/new', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'BlogController@newPost',
+    'roles' => ['']
+]);
+
+
+Route::get('blog/{id}', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'BlogController@showPost',
+    'roles' => ['user']
+]);
+
+
+Route::get('blog/{post}/edit', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'BlogController@editPost',
+    'roles' => ['']
+]);
+
+Route::get('blog/{post}/delete', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'BlogController@deletePost',
+    'roles' => ['']
+]);
+
+Route::post('blog/create', [
+    'middleware' => ['auth', 'roles'],
+    'as' => 'post.create',
+    'uses' => 'BlogController@createPost',
+    'roles' => ['']
+]);
+
+Route::post('blog/{post}/update', [
+    'middleware' => ['auth', 'roles'],
+    'as' => 'post.update',
+    'uses' => 'BlogController@updatePost',
+    'roles' => ['']
+]);
 
 Route::controllers([
     'auth' => 'Auth\AuthController'

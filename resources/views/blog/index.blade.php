@@ -20,7 +20,11 @@
     </ul>
     <hr>
     {!! $posts->render() !!}
-    <div>
-        <a href="/blog/new"><button class="btn btn-success">Create a Post</button></a>
-    </div>
+    @if(Auth::check())
+        @if(Auth::user()->role_id==\App\Role::ADMIN)
+            <div>
+                <a href="/blog/new"><button class="btn btn-success">Create a Post</button></a>
+            </div>
+        @endif
+    @endif
 @endsection

@@ -11,6 +11,15 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            @if(Auth::check())
+                @if(Auth::user()->role_id==\App\Role::ADMIN)
+                    <ul class="nav navbar-nav">
+                        <li class="{{ (Request::is('/user') ? 'active' : '') }}">
+                            <a href="{!! URL::to('user') !!}">User Management</a>
+                        </li>
+                    </ul>
+                @endif
+            @endif
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
                     <li class="{{ (Request::is('auth/login') ? 'active' : '') }}"><a href="{!! URL::to('auth/login') !!}"><i
@@ -23,14 +32,6 @@
                            aria-expanded="false"><i class="fa fa-user"></i> {{ Auth::user()->name }} <i
                                     class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                            @if(Auth::check())
-                                @if(Auth::user()->admin==1)
-                                    <li>
-                                        <a href="{!! URL::to('admin/dashboard') !!}"><i class="fa fa-tachometer"></i> User Management</a>
-                                    </li>
-                                @endif
-                                <li role="presentation" class="divider"></li>
-                            @endif
                             <li>
                                 <a href="{!! URL::to('auth/logout') !!}"><i class="fa fa-gn-out"></i> Logout</a>
                             </li>

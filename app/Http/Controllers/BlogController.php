@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class BlogController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $posts = Post::where('created_at', '<=', Carbon::now())
