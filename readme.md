@@ -26,6 +26,19 @@ $ php artisan db:seed
 1. Composer install all the necessary libraries
 2. Install Migration
 3. Database Seeds for creating an Admin account and also generating example data.
+ 
+### Default Accounts
+
+  - Admin
+  ```
+  Email: admin@admin.com
+  Password: password
+  ```
+  - User
+  ```
+  Email: user@user.com
+  Password: password
+  ```
 
 ### License
 
