@@ -32,11 +32,15 @@ $ php artisan db:seed
   - Admin
   ```
   Email: admin@admin.com
+  ```
+  ```
   Password: password
   ```
   - User
   ```
   Email: user@user.com
+  ```
+  ```
   Password: password
   ```
 
