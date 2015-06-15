@@ -1,4 +1,4 @@
-## Eric Blog
+## Eric's Blog
 
 A basic blog with user authorisation built by using Laravel 5.1
 
