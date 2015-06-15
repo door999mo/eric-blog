@@ -8,6 +8,13 @@ A basic blog with user authorisation built by using Laravel 5.1
   - Simple User Management for User View, Create, Edit and Delete (Admin account only).
   - Using CKEditor as WSYSWYG for creating posts and comments.
 
+### Requirement
+
+  - PHP >= 5.5.9
+  - Laravel >= 5.1
+  - Composer
+  - Firefox / Chrome (IE is not tested)
+
 ### Installation
 
 ```sh
