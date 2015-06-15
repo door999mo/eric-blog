@@ -106,7 +106,7 @@ Route::post('comment/create/{post}', [
     'middleware' => ['auth', 'roles'],
     'as' => 'comment.create',
     'uses' => 'CommentController@createComment',
-    'roles' => ['']
+    'roles' => ['user']
 ]);
 
 
