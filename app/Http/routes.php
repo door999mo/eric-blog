@@ -28,7 +28,7 @@ Route::get('blog/new', [
 ]);
 
 
-Route::get('blog/{id}', [
+Route::get('blog/{post}', [
     'middleware' => ['auth', 'roles'],
     'uses' => 'BlogController@showPost',
     'roles' => ['user']
@@ -100,6 +100,15 @@ Route::post('user/{user}/update', [
     'uses' => 'UserController@updateUser',
     'roles' => ['']
 ]);
+
+// Comment
+Route::post('comment/create/{post}', [
+    'middleware' => ['auth', 'roles'],
+    'as' => 'comment.create',
+    'uses' => 'CommentController@createComment',
+    'roles' => ['']
+]);
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController'

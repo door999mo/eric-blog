@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Role;
 use App\User;
+use App\Post;
+use App\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call('PostTableSeeder');
         $this->call('RoleTableSeeder');
         $this->call('UserTableSeeder');
+        $this->call('CommentTableSeeder');
 
         Model::reguard();
     }
@@ -89,6 +92,25 @@ class UserTableSeeder extends Seeder{
                 'email' => $faker->unique()->email,
                 'password' => Hash::make('password')
             ]);
+        }
+    }
+}
+
+class CommentTableSeeder extends Seeder{
+
+    public function run()
+    {
+        $faker = Faker\Factory::create();
+        $posts = Post::all();
+        foreach ($posts as $post) {
+            for ($i = 0; $i < mt_rand(3, 10); $i++) {
+                $user = User::orderByRaw("RAND()")->first();
+                Comment::create([
+                    'user_id' => $user->id,
+                    'post_id' => $post->id,
+                    'comment' => $faker->sentence(mt_rand(3, 10))
+                ]);
+            }
         }
     }
 }
