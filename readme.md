@@ -2,7 +2,7 @@
 
 A basic blog built by using Laravel 5.1
 
-  - User Authorisation and Authentication
+  - User Authorisation and Authentication (User Login and Register)
   - Make comments to a post
   - Blog Post View, Create, Edit and Delete (Admin account only).
   - Simple User Management for User View, Create, Edit and Delete (Admin account only).
