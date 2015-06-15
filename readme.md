@@ -1,6 +1,6 @@
 ## Eric's Blog
 
-A basic blog with user authorisation built by using Laravel 5.1
+A basic blog built by using Laravel 5.1
 
   - User Authorisation and Authentication
   - Make comments to a post
