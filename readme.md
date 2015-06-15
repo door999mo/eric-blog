@@ -3,9 +3,10 @@
 A basic blog with user authorisation built by using Laravel 5.1
 
   - User Authorisation and Authentication
-  - Blog Post Create, Edit and Delete. (Admin account only)
   - Make comments to a post
-  - Simple User Management (Admin account only)
+  - Blog Post View, Create, Edit and Delete (Admin account only).
+  - Simple User Management for User View, Create, Edit and Delete (Admin account only).
+  - Using CKEditor as WSYSWYG for creating posts and comments.
 
 ### Installation
 
