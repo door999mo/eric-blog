@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h1>New Post</h1>
+    <h1>New User</h1>
 
     <p>
         <button class="btn btn-primary" onclick="history.go(-1)">
@@ -14,13 +14,13 @@
             @foreach($errors->all() as $error)
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span>
-                {{ $error }} <br/>
+                {{ $error }}<br/>
             @endforeach
         </div>
     @endif
 
-    {!! Form::open(array('route' => 'post.create', 'autocomplete'=>'off')) !!}
-    @include('post.form', array('is_new'=>true) )
+    {!! Form::open(array('route' => 'user.create', 'autocomplete'=>'off')) !!}
+    @include('user.form', array('is_new'=>true) )
     <button type="submit" class="btn btn-default">Create</button>
     {!! Form::close() !!}
 @endsection

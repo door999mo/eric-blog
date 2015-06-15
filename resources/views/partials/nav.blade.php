@@ -11,15 +11,18 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            @if(Auth::check())
-                @if(Auth::user()->role_id==\App\Role::ADMIN)
-                    <ul class="nav navbar-nav">
-                        <li class="{{ (Request::is('/user') ? 'active' : '') }}">
+            <ul class="nav navbar-nav">
+                <li class="{{ (Request::is('blog*') ? 'active' : '') }}">
+                    <a href="{!! URL::to('blog') !!}">Blog</a>
+                </li>
+                @if(Auth::check())
+                    @if(Auth::user()->role_id==\App\Role::ADMIN)
+                        <li class="{{ (Request::is('user*') ? 'active' : '') }}">
                             <a href="{!! URL::to('user') !!}">User Management</a>
                         </li>
-                    </ul>
+                    @endif
                 @endif
-            @endif
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
                     <li class="{{ (Request::is('auth/login') ? 'active' : '') }}"><a href="{!! URL::to('auth/login') !!}"><i

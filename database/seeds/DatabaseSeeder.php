@@ -67,11 +67,28 @@ class UserTableSeeder extends Seeder{
         DB::table('users')->truncate();
 
         User::create([
-            'id' => 1,
             'role_id' => Role::ADMIN,
             'name' => 'Admin',
-            'email' => 'admin@eric.com',
+            'email' => 'admin@admin.com',
             'password' => Hash::make('password')
         ]);
+
+        User::create([
+            'role_id' => Role::USER,
+            'name' => 'User',
+            'email' => 'user@user.com',
+            'password' => Hash::make('password')
+        ]);
+
+        $faker = Faker\Factory::create();
+
+        for ($i = 0; $i < 20; $i++) {
+            User::create([
+                'role_id' => Role::USER,
+                'name' => $faker->unique()->name,
+                'email' => $faker->unique()->email,
+                'password' => Hash::make('password')
+            ]);
+        }
     }
 }

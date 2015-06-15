@@ -78,4 +78,31 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return (strtolower($need_role)==strtolower($this->have_role->name)) ? true : false;
     }
+
+    public function getRememberToken()
+    {
+        return null; // not supported
+    }
+
+    public function setRememberToken($value)
+    {
+        // not supported
+    }
+
+    public function getRememberTokenName()
+    {
+        return null; // not supported
+    }
+
+    /**
+     * Overrides the method to ignore the remember token.
+     */
+    public function setAttribute($key, $value)
+    {
+        $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+        if (!$isRememberTokenAttribute)
+        {
+            parent::setAttribute($key, $value);
+        }
+    }
 }

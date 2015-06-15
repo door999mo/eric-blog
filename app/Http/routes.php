@@ -14,6 +14,7 @@ Route::get('/', function () {
     return redirect('/blog');
 });
 
+// Blog
 Route::get('blog', [
     'middleware' => ['auth', 'roles'],
     'uses' => 'BlogController@index',
@@ -57,6 +58,46 @@ Route::post('blog/{post}/update', [
     'middleware' => ['auth', 'roles'],
     'as' => 'post.update',
     'uses' => 'BlogController@updatePost',
+    'roles' => ['']
+]);
+
+// User Management
+Route::get('user', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'UserController@index',
+    'roles' => ['']
+]);
+
+Route::get('user/new', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'UserController@newUser',
+    'roles' => ['']
+]);
+
+
+Route::get('user/{user}', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'UserController@editUser',
+    'roles' => ['']
+]);
+
+Route::get('user/{user}/delete', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'UserController@deleteUser',
+    'roles' => ['']
+]);
+
+Route::post('user/create', [
+    'middleware' => ['auth', 'roles'],
+    'as' => 'user.create',
+    'uses' => 'UserController@createUser',
+    'roles' => ['']
+]);
+
+Route::post('user/{user}/update', [
+    'middleware' => ['auth', 'roles'],
+    'as' => 'user.update',
+    'uses' => 'UserController@updateUser',
     'roles' => ['']
 ]);
 

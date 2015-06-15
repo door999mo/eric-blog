@@ -17,7 +17,7 @@
                 </button>
             </a>
             <a href="/blog/{{ $post->id }}/delete">
-                <button class="btn btn-danger" href="/blog/{{ $post->id }}/delete">
+                <button class="btn btn-danger">
                     Delete
                 </button>
             </a>
