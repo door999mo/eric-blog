@@ -4,5 +4,5 @@
 </div>
 <div class="form-group">
     {!! Form::label('content', 'Content:') !!}
-    {!! Form::textarea('content', null, array('class' => 'form-control')) !!}
+    {!! Form::textarea('content', null, array('class' => 'form-control ckeditor')) !!}
 </div>

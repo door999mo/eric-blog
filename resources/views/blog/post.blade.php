@@ -17,7 +17,7 @@
     <h1>{{ $post->title }}</h1>
     <h5>{{ $post->created_at->format('M jS Y g:ia') }}</h5>
     <hr>
-    {!! nl2br(e($post->content)) !!}
+    {!! $post->content !!}
     <hr>
     <table class="table table-striped">
         <thead>
@@ -30,7 +30,7 @@
         @foreach ($post->comments as $comment)
             <tr>
                 <td>{{ $comment->user->name }}</td>
-                <td>{{ $comment->comment }}</td>
+                <td>{!! $comment->comment !!}</td>
             </tr>
         @endforeach
         </tbody>
@@ -40,7 +40,6 @@
     @include('comment.form', array('is_new'=>true) )
     <button type="submit" class="btn btn-success">Comment</button>
     {!! Form::close() !!}
-
     <hr>
 
     <button class="btn btn-primary" onclick="history.go(-1)">

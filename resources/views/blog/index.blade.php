@@ -13,7 +13,7 @@
                 <a href="/blog/{{ $post->id }}">{{ $post->title }}</a>
                 <em>({{ $post->created_at->format('M jS Y g:ia') }})</em>
                 <p>
-                    {{ str_limit($post->content) }}
+                    {{ str_limit(strip_tags($post->content)) }}
                 </p>
             </li>
         @endforeach

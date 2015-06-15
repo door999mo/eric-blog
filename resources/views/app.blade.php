@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@section('title') Laravel 5 Sample Site @show</title>
+    <title>@section('title') Eric's Blog @show</title>
     @section('meta_keywords')
         <meta name="keywords" content="your, awesome, keywords, here"/>
     @show @section('meta_author')
@@ -49,12 +49,12 @@
 </div>
 
 <!-- Scripts -->
-{{--<script src="{{ asset('/js/all.js') }}"></script>--}}
 <script src="{{ asset('js/all.js') }}"></script>
 
 {{-- TODO: Incorporate into elixir workflow. --}}
 <script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>
 <script src="{{asset('assets/site/js/lightbox.min.js')}}"></script>
+<script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
 
 <script>
     $('#flash-overlay-modal').modal();
